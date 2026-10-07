@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YPO MENA REX Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#2C3A5D; --navy-deep:#1D2742; --gold:#D4A43A; --gold-ink:#9C7419; --gold-soft:#F5EBD1;
+  --bg:#F5F6F9; --surface:#FFFFFF; --ink:#1B2233; --muted:#5A6479; --line:#DDE2EB; --chip:#EEF1F6;
+  --hero-ink:#FFFFFF; --focus:#D4A43A;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#34456E; --navy-deep:#141C31; --gold:#E0B44E; --gold-ink:#E0B44E; --gold-soft:#3A3322;
+    --bg:#0E1424; --surface:#172036; --ink:#E8ECF4; --muted:#A3AEC4; --line:#2A3551; --chip:#202A44;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#34456E; --navy-deep:#141C31; --gold:#E0B44E; --gold-ink:#E0B44E; --gold-soft:#3A3322;
+  --bg:#0E1424; --surface:#172036; --ink:#E8ECF4; --muted:#A3AEC4; --line:#2A3551; --chip:#202A44;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+img{max-width:100%}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;margin:0;letter-spacing:-0.01em}
+
+/* Top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--navy-deep);color:#fff;border-bottom:3px solid var(--gold)}
+.topbar-in{display:flex;align-items:center;gap:18px;max-width:1280px;margin:0 auto;padding:12px 24px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.brand b{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-0.02em}
+.brand span{font-size:13px;color:#C7CFE0}
+.topnav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{font-size:14px;text-decoration:none;padding:6px 11px;border-radius:999px;color:#DCE2EE;white-space:nowrap}
+.topnav a:hover,.topnav a.on{background:rgba(255,255,255,.12);color:#fff}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--hero-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.6px,transparent 1.8px);background-size:22px 22px;mask-image:linear-gradient(90deg,#000 0,transparent 34%);-webkit-mask-image:linear-gradient(90deg,#000 0,transparent 34%);pointer-events:none}
+.hero-in{position:relative;max-width:1280px;margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:end}
+.hero h1{font-size:clamp(40px,6.4vw,82px);font-weight:800;letter-spacing:-0.035em;line-height:.96}
+.hero h1 .l2{display:block;color:var(--gold)}
+.hero p.lede{font-size:18px;color:#D5DBE8;max-width:34em;margin:22px 0 0}
+.hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;text-decoration:none;padding:11px 18px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn-gold{background:var(--gold);color:#1D2742}
+.btn-gold:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn svg{width:15px;height:15px;flex:none}
+
+/* FY timeline (the signature element) */
+.fy{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px 22px 18px}
+.fy-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fy-head h2{font-size:19px;font-weight:700}
+.fy-head span{font-size:13.5px;color:#C7CFE0}
+.fy-track{position:relative;height:64px;margin-top:20px}
+.fy-bar{position:absolute;left:0;right:0;top:8px;height:10px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.fy-fill{height:100%;background:var(--gold);border-radius:99px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.fy-tick{position:absolute;top:4px;width:1px;height:18px;background:rgba(255,255,255,.25)}
+.fy-q{position:absolute;top:28px;font-size:12px;color:#AEB8CD;transform:translateX(-50%)}
+.fy-dot{position:absolute;top:5px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--navy);border:2.5px solid #fff;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff;line-height:1}
+.fy-dot.end{border-color:var(--gold);color:var(--gold)}
+.fy-today{position:absolute;top:44px;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--gold);white-space:nowrap}
+.fy-today::before{content:"";position:absolute;left:50%;top:-10px;margin-left:-5px;border:5px solid transparent;border-bottom-color:var(--gold);border-top:0}
+.fy-legend{list-style:none;margin:10px 0 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.14);display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.fy-legend li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:#E6EAF2;line-height:1.35}
+.fy-legend b{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-size:10px;margin-top:1px}
+.fy-legend li.end{color:var(--gold);font-weight:600}.fy-legend li.end b{border-color:var(--gold)}
+@media (max-width:420px){.fy-legend{grid-template-columns:1fr}}
+.fy-note{font-size:13.5px;color:#C7CFE0;margin:6px 0 0}
+
+/* Layout */
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+section.block{padding:72px 0 8px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:30px;max-width:760px}
+.sec-head h2{font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-0.025em}
+.sec-head h2::after{content:"";display:block;width:56px;height:5px;background:var(--gold);border-radius:3px;margin-top:14px}
+.sec-head p{color:var(--muted);font-size:17px;margin:0}
+
+/* REX roster */
+.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.person{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none}
+a.person:hover{border-color:var(--gold)}
+.mono{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:17px;background:var(--navy);color:#fff;letter-spacing:.02em}
+.person.lead .mono{background:var(--gold);color:#1D2742}
+.person b{display:block;font-weight:700;font-size:15.5px;line-height:1.3}
+.person span{display:block;font-size:13.5px;color:var(--muted);line-height:1.35}
+.roster-lead{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:14px}
+.roster-lead .person{padding:20px;border-width:1.5px;border-color:var(--gold)}
+.roster-lead .mono{width:60px;height:60px;font-size:21px}
+.roster-lead b{font-size:18px}
+
+/* Goals */
+.goals{columns:2 380px;column-gap:18px}
+.goal{break-inside:avoid;background:var(--surface);border:1px solid var(--line);border-radius:16px;margin:0 0 18px;overflow:hidden}
+.goal-h{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.goal-h h3{font-size:19px;font-weight:700}
+.goal-h span{font-size:13px;color:#C7CFE0;text-align:right}
+.goal ul{margin:0;padding:14px 18px 16px 38px}
+.goal li{margin:6px 0;padding-left:2px}
+.goal li::marker{color:var(--gold)}
+.due{display:flex;align-items:center;gap:14px;background:var(--gold-soft);border:1px solid var(--gold);border-radius:14px;padding:14px 18px;margin-bottom:22px;color:var(--ink)}
+.due strong{font-family:var(--display);font-size:20px}
+
+/* Roles */
+.shared{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:26px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.panel h3{font-size:18px;margin-bottom:8px}
+.panel ul{margin:0;padding-left:20px}
+.panel li{margin:5px 0}
+.panel li::marker{color:var(--gold)}
+.role{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.role>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 22px}
+.role>summary::-webkit-details-marker{display:none}
+.role>summary h3{font-size:21px;font-weight:700}
+.role>summary .who{font-size:14.5px;color:var(--muted);margin-top:3px}
+.role>summary .tog{font-size:26px;line-height:1;color:var(--muted);transition:transform .25s}
+.role[open]>summary .tog{transform:rotate(45deg);color:var(--gold-ink)}
+.role[open]>summary{border-bottom:1px solid var(--line)}
+.role-body{padding:20px 22px 24px}
+.mission{font-size:17.5px;border-left:4px solid var(--gold);padding:4px 0 4px 16px;margin:0 0 20px;max-width:62ch}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 30px}
+.rgrid h4{font-size:15.5px;font-weight:700;margin-bottom:6px;color:var(--navy)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rgrid h4{color:var(--gold)}}
+:root[data-theme="dark"] .rgrid h4{color:var(--gold)}
+.rgrid ul{margin:0;padding-left:19px}
+.rgrid li{margin:4px 0;font-size:15.5px}
+.rgrid li::marker{color:var(--gold)}
+.tl{margin-top:24px}
+.tl h4{font-size:15.5px;font-weight:700;margin-bottom:10px}
+.tl ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 16px 22px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2.5px solid var(--gold)}
+.tl li b{display:block;font-size:15.5px}
+.tl li em{font-style:normal;font-size:13px;font-weight:600;color:var(--gold-ink)}
+.tl li p{margin:3px 0 0;font-size:15px;color:var(--muted)}
+.mb{margin-top:24px;background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px}
+.mb h4{font-size:15.5px;font-weight:700;margin:0 0 4px}
+.mb .src{font-size:13.5px;color:var(--muted);margin:0 0 10px}
+.mb ul{margin:0;padding-left:19px}.mb li{margin:4px 0;font-size:15px}.mb li::marker{color:var(--gold)}
+.mb h5{font-family:var(--display);font-size:14.5px;font-weight:700;margin:14px 0 4px}
+.mb .mand{margin:0;font-size:15.5px}
+.dd2{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+@media (max-width:640px){.dd2{grid-template-columns:1fr}}
+.mb a.inl{font-weight:600;color:var(--gold-ink)}
+.cl{margin-top:18px}
+.cl h4{font-size:15.5px;font-weight:700;margin:0 0 8px}
+.cl p{margin:0;font-size:14.5px;color:var(--muted)}
+.note{font-size:14px;color:var(--muted);margin-top:18px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.lnk{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;text-decoration:none;padding:7px 13px;border-radius:9px;background:var(--chip);border:1px solid var(--line)}
+.lnk:hover{border-color:var(--gold)}
+.lnk svg{width:13px;height:13px}
+
+/* Management */
+.mgmt{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column}
+.mtop{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.mtop .mono{background:var(--gold);color:#1D2742}
+.mtop b{font-family:var(--display);font-size:19px;display:block}
+.mtop span{font-size:14px;color:var(--muted);line-height:1.35;display:block}
+.mcard h4{font-size:14.5px;margin:10px 0 4px}
+.mcard ul{margin:0;padding-left:19px;font-size:15px}
+.mcard li::marker{color:var(--gold)}
+.mcard .sup{font-size:14.5px;color:var(--muted);margin:4px 0 0}
+.mcard details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.mcard summary{cursor:pointer;font-weight:600;font-size:14.5px;color:var(--gold-ink)}
+.mcard details[open] summary{margin-bottom:8px}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.dd{grid-template-columns:1fr}}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--navy);color:#fff;font-family:var(--display);font-weight:600;font-size:15px}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+#calT td:first-child{white-space:nowrap}
+#canT,#cantT{table-layout:fixed}
+#canT th:first-child,#cantT th:first-child{width:56%}
+#canT td,#cantT td,#canT th,#cantT th{white-space:normal;overflow-wrap:anywhere;padding:10px 12px;font-size:14.5px}
+#canT td.basis,#cantT td.basis{font-size:13.5px}
+td.basis{color:var(--muted);font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.two h3{font-size:20px;margin:0 0 10px}
+
+/* Policies & presentation */
+.doc-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.doc{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none}
+.doc:hover{border-color:var(--gold)}
+.doc b{font-family:var(--display);font-size:17.5px}
+.doc span{font-size:14.5px;color:var(--muted)}
+.doc em{font-style:normal;font-size:13.5px;font-weight:600;color:var(--gold-ink);margin-top:auto;padding-top:6px}
+.feature{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--navy-deep);color:#fff;border-radius:20px;padding:30px 32px;border-left:6px solid var(--gold)}
+.feature h3{font-size:26px}
+.feature p{margin:6px 0 0;color:#C7CFE0}
+@media (max-width:640px){.feature{grid-template-columns:1fr}}
+
+footer{margin-top:80px;background:var(--navy-deep);color:#C7CFE0;font-size:14px}
+footer .wrap{padding:28px 24px 110px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer b{color:#fff;font-family:var(--display)}
+
+/* Chat */
+.chat-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:none;align-items:center;gap:10px;background:var(--gold);color:#1D2742;border:0;border-radius:999px;padding:13px 20px 13px 16px;font:700 15px var(--body);cursor:pointer;box-shadow:0 10px 28px rgba(20,28,49,.35)}
+.chat-fab svg{width:20px;height:20px}
+.chat-fab.show{display:inline-flex}
+.chat{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;width:min(420px,calc(100vw - 24px));height:min(640px,calc(100dvh - 110px));display:none;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(10,15,30,.35)}
+.chat.open{display:flex}
+.chat-h{background:var(--navy-deep);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--gold)}
+.chat-h b{font-family:var(--display);font-size:17px;display:block}
+.chat-h span{font-size:12.5px;color:#C7CFE0;display:block}
+.chat-h button{margin-left:auto;background:transparent;border:0;color:#fff;cursor:pointer;width:34px;height:34px;border-radius:8px;font-size:22px;line-height:1}
+.chat-h button:hover{background:rgba(255,255,255,.1)}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:88%;padding:10px 14px;border-radius:14px;font-size:15px;line-height:1.5;word-wrap:break-word}
+.m.u{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.m.a{align-self:flex-start;background:var(--chip);border-bottom-left-radius:4px}
+.m.a ul{margin:4px 0;padding-left:18px}
+.m.a p{margin:0 0 6px}.m.a p:last-child{margin:0}
+.m.err{background:transparent;border:1px dashed var(--line);color:var(--muted);font-size:14px}
+.sugs{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
+.sugs button{font:500 13px var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer;text-align:left}
+.sugs button:hover{border-color:var(--gold)}
+.chat-f{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--surface)}
+.chat-f textarea{flex:1;resize:none;font:15px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;height:46px;max-height:120px}
+.chat-f button{font:700 14px var(--body);border:0;border-radius:10px;padding:0 16px;cursor:pointer;background:var(--gold);color:#1D2742}
+.chat-f button.stop{background:var(--chip);color:var(--ink);border:1px solid var(--line)}
+.chat-f button:disabled{opacity:.5;cursor:default}
+
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;padding-top:44px;gap:32px}
+  .brand span{display:none}
+}
+@media (max-width:560px){
+  .wrap,.hero-in,.topbar-in{padding-left:16px;padding-right:16px}
+  section.block{padding-top:56px}
+  .chat{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><b>YPO MENA REX Playbook</b><span>FY26–27</span></a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#rex">REX</a><a href="#goals">SMART goals</a><a href="#roles">Officer roles</a><a href="#management">Management</a><a href="#policies">Policies</a><a href="#q1">Q1 call</a><a href="#links">Links</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="hero-in">
+    <div>
+      <h1>YPO MENA<span class="l2">REX Playbook</span></h1>
+      <p class="lede">How the FY26–27 Regional Executive Committee works together: who holds each portfolio, what we have committed to deliver by 30 June 2027, and who in management to call on.</p>
+      <div class="hero-links">
+        <a class="btn btn-gold" href="https://ypo-mena-playbook.vercel.app/" target="_blank" rel="noopener">Open the United MENA Playbook <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+        <a class="btn btn-ghost" href="https://canva.link/m51o0qxf7y2861j" target="_blank" rel="noopener">Q1 call presentation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+      </div>
+    </div>
+    <div class="fy" aria-label="FY26–27 progress">
+      <div class="fy-head"><h2>The FY26–27 year</h2><span id="fyPct"></span></div>
+      <div class="fy-track" id="fyTrack">
+        <div class="fy-bar"><div class="fy-fill" id="fyFill"></div></div>
+      </div>
+      <ol class="fy-legend" id="fyLegend"></ol>
+      <p class="fy-note" id="fyNote"></p>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section class="block" id="rex">
+  <div class="sec-head"><h2>The FY26–27 REX</h2><p>Thirteen elected officers, led by the YPO and YPO Gold Regional Chairs. Select an officer to jump to their role guide.</p></div>
+  <div class="roster-lead" id="rosterLead"></div>
+  <div class="roster" id="roster"></div>
+</section>
+
+<section class="block" id="goals">
+  <div class="sec-head"><h2>FY26–27 SMART goals</h2><p>The goals the REX agreed for the year, grouped by portfolio and linked to the officer who owns them.</p></div>
+  <div class="due"><strong>To be completed by 30 June 2027</strong><span id="dueLeft"></span></div>
+  <div class="goals" id="goalList"></div>
+</section>
+
+<section class="block" id="roles">
+  <div class="sec-head"><h2>Officer roles</h2><p>What every regional officer shares, then a guide to each portfolio, drawn from the YPO Lead role pages.</p></div>
+  <div class="shared" id="shared"></div>
+  <div id="roleList"></div>
+</section>
+
+<section class="block" id="management">
+  <div class="sec-head"><h2>Working with management</h2><p>Your YPO MENA regional management team, what to ask each of them, and where their role ends and the REX's begins.</p></div>
+  <div class="mgmt" id="mgmt"></div>
+  <div class="two">
+    <div><h3>What management can do</h3><div class="tbl-wrap"><table id="canT"><thead><tr><th>Management can</th><th>Basis</th></tr></thead><tbody></tbody></table></div></div>
+    <div><h3>What management can't do</h3><div class="tbl-wrap"><table id="cantT"><thead><tr><th>Management can't</th><th>Basis</th></tr></thead><tbody></tbody></table></div></div>
+  </div>
+</section>
+
+<section class="block" id="policies">
+  <div class="sec-head"><h2>YPO Policies and Procedures</h2><p>The governing documents that apply to every chapter and region. The P&amp;P and Operations Manual set the standards; chapter by-laws sit alongside them, tailored to the country of incorporation.</p></div>
+  <div class="doc-row" id="docs"></div>
+</section>
+
+<section class="block" id="q1">
+  <div class="feature">
+    <div><h3>Q1 REX call presentation</h3><p>The slides from our most recent quarterly call, including progress against the FY26–27 goals.</p></div>
+    <a class="btn btn-gold" href="https://canva.link/m51o0qxf7y2861j" target="_blank" rel="noopener">Open in Canva <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+  </div>
+</section>
+
+<section class="block" id="links">
+  <div class="sec-head"><h2>Regional links</h2><p>Live dashboards, calendars and officer lists from the United MENA Playbook.</p></div>
+  <div class="doc-row" id="rlinks"></div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><span><b>YPO MENA REX Playbook</b> · FY26–27 Regional Executive Committee</span><span>Confidential, for YPO MENA REX use only.</span></div></footer>
+
+<button class="chat-fab" id="fab" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg>Ask the playbook</button>
+<div class="chat" id="chat" role="dialog" aria-label="Ask the REX Playbook">
+  <div class="chat-h"><div><b>Ask the REX Playbook</b><span>Answers come only from this playbook</span></div><button id="closeChat" aria-label="Close">×</button></div>
+  <div class="msgs" id="msgs"><div class="m a"><p>Hi! Ask me anything about the REX Playbook: officers, SMART goals, role responsibilities, management contacts or policies. I'll stick to what's in the playbook.</p></div></div>
+  <div class="sugs" id="sugs"></div>
+  <form class="chat-f" id="chatForm"><textarea id="q" placeholder="Ask about the REX…" aria-label="Your question" rows="1"></textarea><button type="submit" id="send">Send</button></form>
+</div>
+
+<script>
+const EXT = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>';
+const U = {
+  united:"https://ypo-mena-playbook.vercel.app/",
+  q1:"https://canva.link/m51o0qxf7y2861j",
+  pp:"https://www2.ypoconnect.org/topics/24644/media_center/folder/f3ef569f-e46c-45be-b900-30eb78b9f781?_gl=1*zmd64k*_ga*ODg3MTM3NDU5LjE3NzM4NTEyMjY.*_ga_JYHVQ6LXLX*czE3NzM5NDQzODUkbzEwJGcxJHQxNzczOTQ4NTY3JGo2MCRsMSRoNzgzNzcxMjUx",
+  bylaws:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/1/77a37f32-cef7-450b-83ed-f53b6d449ad9.pdf",
+  ecode:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/2/030bb085-12ea-4209-a701-8d2b8dabdcd2.pdf",
+  conduct:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/3/41d8799e-9491-4673-a12b-540abdbee02f.pdf",
+  catalog:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/1/e7b948bd-7d69-4131-ba5e-c1825cf22f19.pdf",
+  succession:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/1/1e87632d-0248-4745-b3ea-c1835923a2bb.pdf",
+  commitments:"https://ypomenachaptercommitments-nu.vercel.app/",
+  calendar:"https://app.smartsheet.com/b/publish?EQBCT=1b959ef827fd4a86b775e99a52b2ce29",
+  gameplan:"https://app.smartsheet.com/b/form/cbd99d5463e54469985db4057129c575",
+  chairs:"https://ypoconnect.org/#/download/d54590aa-1574-4c50-a0ad-d1f3453841de",
+  cmo:"https://www.ypoconnect.org/#/download/a0c46d41-aa34-49a1-b6ef-45dda7923dd4",
+  meo:"https://www.ypoconnect.org/#/download/b56181c2-4c12-43cd-9f19-49eff1473774",
+  cfo:"https://www.ypoconnect.org/#/download/53d93c72-83eb-471a-946d-6e4633405b69",
+  csfo:"https://www.ypoconnect.org/#/download/b685c810-61fd-4bd2-80ba-dd027422ca3d",
+  clo:"https://www.ypoconnect.org/#/download/7495914f-268c-421a-84ba-22a33be78837",
+  spo:"https://www.ypoconnect.org/#/download/29d975df-2748-4261-a8f5-8e559f338dc2",
+  guides:"https://brojure.com/ypo-emea/mena-regional-chapter-guide/",
+  forumhub:"https://ypo.my.site.com/ypoforum/",
+  cff:"https://cffdirectory.ypo.org/cff-directory",
+  daychair:"https://lead.ypoconnect.org/officer-roles/day-chair-central",
+  learnhub:"https://explore.ypoconnect.org/",
+  slp:"https://lead.ypoconnect.org/resources/strategic-partners/strategic-learning-partners",
+  spagree:"https://image.ypo-mail.org/lib/fe2f1171716404787c1478/m/1/1734c343-8758-4e45-bd4a-5a310f5857e1.pdf",
+  memguide:"https://youngpresidentsorg-my.sharepoint.com/:b:/g/personal/paige_morgan_ypo_org/IQAM2Ti4di0wS7n0nQZjURhrAVa-bLYz2NRZZTT1sjPpnKY?e=5VKKOW",
+  verify:"https://youngpresidentsorg-my.sharepoint.com/:b:/g/personal/paige_morgan_ypo_org/IQD2CuuSmTTlRIluZL9W8250AUwErSRSkDY41kpz3GdtmKY?e=hAiMfr",
+  spint:"https://youngpresidentsorg-my.sharepoint.com/:b:/g/personal/paige_morgan_ypo_org/IQBklDDo9_N9Rq99_DU0knpdAXUWtOrqMUKhhW6UCdnMYzU?e=AW26j4",
+  ysp:"https://ypoconnect.org/#/network/30303136-3130-3030-3031-464158585300",
+  famlist:"https://ypoconnect.org/#/download/92766180-3ab3-45f5-a529-cd51e087fc52",
+  famforum:"https://youngpresidentsorg-my.sharepoint.com/:b:/g/personal/paige_morgan_ypo_org/IQDM-rXsrbNKR6AoLf3RMtNqAQs3Qjtyc-i5ZToa957eGBg?e=KwFpvN",
+  parenting:"https://ypoconnect.org/#/network/7d773577-9d97-e611-951b-0050569257ef",
+  parenting101:"https://testing-bcp.my.canva.site/ypoparentingcommunity101",
+  famsub:"https://ypoconnect.org/#/network/30303134-4d30-3030-3031-6e4e42585300",
+  famess:"https://cpcontents.adobe.com/public/newlearner/newlearner_46b41063.html?accountId=62487&hostName=learningmanager.adobe.com#/instancePage?loId=8288077&loType=course",
+  yng:"https://www.ypoconnect.org/#/group/619426fa-e33f-462f-9727-60dc27cbd655"
+};
+
+const REX = [
+  {n:"Moodi Bukhari", r:"Regional Chair", role:"chair", lead:true},
+  {n:"Elias Chabtini", r:"Regional Chair (Gold)", role:"chair", lead:true},
+  {n:"Helen Bannayan", r:"Past Regional Chair", role:"past"},
+  {n:"Amit Gandhi", r:"Regional Learning Officer", role:"learning"},
+  {n:"Mark Troy", r:"Regional Gold Learning Officer", role:"learning"},
+  {n:"Jason English", r:"Regional Forum Officer", role:"forum"},
+  {n:"Sarah Abudawood", r:"Regional Membership Officer", role:"membership"},
+  {n:"Hachem Ghandour", r:"Regional Member Engagement Officer (Gold)", role:"engagement"},
+  {n:"Dayala Dagher Hayeck", r:"Regional Area Officer: Member Engagement (Y)", role:"engagement"},
+  {n:"Preyen Dewani", r:"Regional Strategic Partnerships Officer", role:"partnerships"},
+  {n:"Shivani Arora", r:"Regional Spouse/Partner Officer", role:"spouse"},
+  {n:"Jana Yamani", r:"Regional Family Officer", role:"family"},
+  {n:"Sabina Hadi", r:"Regional Spouse Forum Officer", role:"spouseforum"}
+];
+const who = role => REX.filter(p=>p.role===role).map(p=>p.n);
+
+const GOALS = [
+  {t:"Regional Chair", role:"chair", g:["80% of Chapters to have achieved 14/14 Chapter Commitments.","90% of Core Officers to complete Officer Training.","100% of Forum Moderators to be trained.","United MENA Playbook to be developed and distributed by 30 September 2026."]},
+  {t:"Past Regional Chair", role:"past", g:["Support the development of a North Africa Regional Chapter CDP in collaboration with Membership.","Support YPO Iraq in the completion of all Chapter Commitments.","Identify two future Champions for the YPO MENA Regional Board.","Support Pan Regional Strategic Partnerships to identify a minimum of 2 partnerships.","Host a Regional Retreat with a minimum of 80 attendees and a rating of 4.5 or above."]},
+  {t:"Membership", role:"membership", g:["Launch MENA SMP strategy, aligning chapter-specific plans with the unique needs and objectives identified through MENA RBM voting, centred on three strategic priority pillars: Women, Professional Managers, and Economic Strategy Leaders.","Host 3 recruitment-focused events in three geographies (Levant / North Africa, GCC, and Pakistan) focusing on SMP categories.","Recruit at least 40 members under 40.","Work directly with Qatar and Kuwait to recruit a minimum of 5 members each per chapter."]},
+  {t:"Learning", role:"learning", g:["Organise and deliver one Assistant Learning Officer (ALO) Peer-to-Peer session at the MENA Mastery that achieves an average participant satisfaction rating of 4.2/5 or higher with 15 Chapters represented.","Plan and facilitate four Day Chair Training sessions, in four different countries, reaching a minimum of 60 attendees total.","Have MENA chapters open at least 50 chapter learning events to the region.","Collaborate with the YNG team to design and host one Gold/YNG regional event.","Ensure that 50% of MENA chapters have successfully hosted at least one chapter retreat."]},
+  {t:"Forum", role:"forum", g:["Ensure 100% of Forum Moderators across the MENA region are trained by 30 March 2027 as part of Commitments.","Ensure 100% of MENA chapters review and validate their forum data.","Reduce the percentage of untrained members across the region to 5.5% or below.","Reduce pending forum placements across the region to 8.5% or below.","Work with Qatar and Palestine chapter to increase number of primary members in forum to 50% or above."]},
+  {t:"Member Engagement", role:"engagement", g:["Gold + Y: Complete baseline and mid-point leaderboard review for the Chapter Engagement Competition across all 27 Chapters launched by 30 September 2026.","Gold + Y: Execute 2 Reignite MENA sessions for existing members with at least 50 in attendance.","Y: Ensure 60 New Member Vouchers are used.","Y: Ensure 70 members and SPs attend Apeiron."]},
+  {t:"Family", role:"family", g:["Support 1 chapter in planning and hosting at least one Family Forum-focused event (virtual or in-person) with a minimum of 10 attendees.","Facilitate a cross-chapter Family event centred on a minimum number of 50 attendees around Ramadan, with participation from a minimum of three MENA chapters with an average attendee satisfaction rating of 4/5.","Launch a regional mentoring initiative with 10 YNGers."]},
+  {t:"Spouse Forum", role:"spouseforum", g:["Increase Spouse Forum Training to 52%.","Increase Spouse Forum Participation to 51%.","Increase Spouse Forum Moderator Trained to 100%."]},
+  {t:"Strategic Partnerships", role:"partnerships", g:["Identify, shape and secure 5 new long term strategic partnerships.","Raise sufficient fund or benefits in kind to support the MENA Mastery.","Increase awareness and usage of member benefits across region."]},
+  {t:"Spouse/Partner", role:"spouse", g:["Support a chapter in planning and hosting a MENA Synergy Business Spouse Event 2.0 featuring a minimum of 4 speakers/panelists and 15 attendees from across the region with average attendee satisfaction rating of 4/5.","Support a chapter in planning and hosting a MENA Male Spouse Event 3.0 with a minimum of 10 male S/P attendees participating and with average attendee satisfaction rating of 4/5.","Support and promote at least 2 chapter-led S/P events open to the Region."]}
+];
+
+const SHARED = [
+  {h:"Shared responsibilities", l:["Every regional officer serves a two-year term.","Serve as a YPO champion in your region.","Establish regional goals in collaboration with fellow regional officers.","Connect with chapter officers to understand their needs.","Share YPO best practices across the region.","Identify and develop future leaders.","Prepare and support your successor."]},
+  {h:"Regional officer qualifications", l:["YPO member in good standing (or spouse/partner of one, where applicable), clear of any disqualifying conduct violation.","At least two years of YPO tenure at the time of application, and enough grace years to complete the term.","Primary member of a chapter in the region.","Served in a chapter officer position or as champion of a relevant event or activity.","No paid consultancy to YPO for the duration of the term.","Wait at least two years after serving as a YPO regional officer before serving as a YPO Gold regional officer. The wait for a YPO Regional Chair becoming a YPO Gold Regional Chair is three years [Gov Art. IV.3.a].","Commit the necessary time, including Regional Officer training."]},
+  {h:"Time commitment (varies by region)", l:["Regional board meetings, usually twice a year for two days, in person or virtual.","REX meetings, monthly or quarterly.","The annual strategic planning meeting, if separate from REX.","Regional officer on-demand learning modules and virtual training.","Quarterly global regional officer calls."]}
+];
+
+const ROLES = [
+ {id:"chair", mgr:["Paige Morgan","Regional Director"], cl:[["FY26–27 Chapter Chair contact list",U.chairs]],
+  rex:{"mandate": "To assure the systems of communication, governance and guiding principles of the organisation are working and adhered to by chapters in the region; to support chapters on operations, health, communications and governance; and to properly administer regional funds [Gov Art. III.1.c.ii].", "formal": ["Oversee the region in partnership with the Regional Director, defining and accomplishing goals and objectives.", "Represent the region on the CRC and the YPO or YPO Gold Council, taking a global YPO view.", "Manage and account for regional budget funds, including allocations to Areas.", "Monitor chapter issues and be the communication link between chapters and the Global Board; ensure chapters function effectively.", "Visit each chapter at least once a year (or ensure a regional officer or management does), meeting the ExCo and attending a chapter meeting, and report visits to the CRC.", "Oversee development of new chapters; participate in GLC; ensure chapters take responsibility for future regional conferences.", "Chair the REX and RBMs; submit the three-year chapter development plan and post it on Connect.", "Review chapter actions to remove or suspend inactive members, and review and approve regional sponsorships (or designate an officer to)."], "do": ["Set the governance cadence early: RBM dates, REX meeting, Game Plan, chapter visit schedule.", "Hold the line on the safe-haven culture in every regional forum, event and channel."], "dont": ["Impose dues or fees on members or chapters [Ops Art. I.3.a].", "Sign anything that binds YPO; only the MD and CFO can [Ops Art. VII.3.b].", "Approve a new chapter; you recommend.", "Take on another YPO leadership role concurrently, outside the four listed exceptions [Gov Art. IV.3.a.i.2].", "Remove an underperforming officer unilaterally; it goes to a Regional Board majority vote [Gov Art. IV.3.c].", "Arbitrarily deny or limit an idea exchange because you disagree with the viewpoint [Ops Art. II.12.c.ix].", "Provide paid consultancy to YPO, a region, chapter or forum while serving [Ops Art. III.15.d]."], "stops": ["At the chapter door: chapters above minimum standards are self-governing. The RC supports, monitors, visits and escalates; the chapter chair leads.", "At management: staffing, systems, contracts, event operations and finance administration sit with the Regional Director.", "At the Global Board: new chapters, dues, membership requirements and policy.", "At the Conduct Committees: conduct cases are handled under the Community Standards Manual, not by the RC or REX."]},
+  t:"Regional Chair", mission:"Lead and align the region to strengthen governance and chapter health, and advance YPO's mission of Better Leaders through Lifelong Learning and Idea Exchange. A two-year commitment: set regional direction, guide execution and ensure continuity through strong succession planning.",
+  cols:[
+   {h:"Key actions", l:["Lead in partnership: work closely with the Regional Director on priorities, governance cadence and regional performance.","Represent the region on the Chapters & Regions Committee (CRC) and bring clarity back to the REX. Each regional chair also serves on the YPO or YPO Gold Council.","Plan and lead governance and executive committee meetings that drive clarity, accountability and progress; start succession planning early.","Host a strategic planning or Game Plan session to define SMART goals; use regional data and funding guidelines to allocate resources.","Build relationships with chapter chairs through regular contact and chapter visits; monitor chapter commitments and health metrics."]},
+   {h:"Time commitment", l:["Lead regional board meetings (usually twice a year, two days) and REX meetings (monthly/quarterly).","Lead the annual strategic planning meeting if separate from REX.","Attend two CRC meetings annually (two days, in person or virtual).","Attend quarterly council conference calls; chapter visits as needed.","Meet the Regional Director monthly or as needed."]},
+   {h:"Qualifications", l:["Prior Chapter Chair experience or equivalent, or champion of a relevant event or activity.","Member in good standing, two years' tenure, primary member of a chapter in the region.","A YPO Regional Chair waits at least three years before serving as a YPO Gold Regional Chair (other regional officers wait two years) [Gov Art. IV.3.a].","YPO (not Gold) members must still be YPO members at the end of the term."]}
+  ],
+  tl:[
+   {w:"Elect year · July–August", b:"Build clarity", p:"Review the role description, complete Officer Essentials, learn the role of the region and the CRC, build mentoring relationships with regional chairs globally."},
+   {w:"Elect year · September–December", b:"Strengthen governance knowledge", p:"Understand the region's chapters, budgets and governance; partner with the Regional Director; work with the REX on succession."},
+   {w:"Elect year · January–March", b:"Prepare to transition", p:"Attend the Global Leadership Meetings and the Regional Officer Workshop at GLC; define vision, priorities and key initiatives."},
+   {w:"Elect year · April–June", b:"Lead alignment", p:"Co-host governance meetings, facilitate strategic planning, finalise SMART goals and budgets, set a communication plan, identify future leaders."},
+   {w:"Chair year · July–October", b:"Start with structure", p:"Onboard chapter chairs, finalise regional fund allocation, assess succession needs, launch Q1 meetings and schedule chapter visits."},
+   {w:"Chair year · October–December", b:"Q2 governance", p:"Lead Q2 governance and REX meetings, review progress, strengthen succession, promote Officer Essentials and GLC to incoming leaders."},
+   {w:"Chair year · January–March", b:"Sustain and hand over", p:"Attend the Regional Officer Workshop if invited, host Q3 meetings, begin knowledge transfer in year two, plan Q4 sessions."},
+   {w:"Chair year · April–May", b:"Close strong", p:"Co-host Q4 meetings, celebrate achievements, push YPO Global Awards participation; in year one, lead strategic planning for next year."}
+  ],
+  links:[["Succession Planning Worksheet",U.succession],["Request a Game Plan",U.gameplan]]},
+ {id:"past", mgr:["Paige Morgan","Regional Director"], cl:[["FY26–27 Chapter Chair contact list",U.chairs]],
+  rex:{"mandate": "A single REX seat that changes occupant: the Past Regional Chair serves the first year and the Regional Chair-Elect the next. Past Regional Chairs serve one year [Gov Art. III.1.b.vi.3].", "do": ["Carry continuity: institutional memory, unfinished commitments and relationships with chapter chairs."], "dont": ["Run a parallel administration. The role is counsel and continuity, not a second chair."], "stops": ["At the Regional Chair, who leads the region and chairs the REX and Regional Board."]},
+  t:"Past Regional Chair", mission:"Carry continuity from the previous term into this one: supporting chapters that need extra help, developing future regional champions, and leading select regional initiatives.",
+  cols:[
+   {h:"Focus this year", l:["North Africa Regional Chapter CDP, with Membership.","YPO Iraq's completion of all Chapter Commitments.","Identifying two future Champions for the Regional Board.","Plan pan-regional strategic partnerships, with the Strategic Partnerships Officer.","The Regional Retreat (80+ attendees, rating 4.5+)."]},
+   {h:"Shared responsibilities apply", l:["Serve as a YPO champion in the region.","Identify and develop future leaders.","Share best practices across the region.","Prepare and support successors."]}
+  ]},
+ {id:"membership", mgr:["Neeta Gandhi","Regional Membership Development Manager"], cl:[["FY26–27 Chapter Membership Officers",U.cmo]],
+  rex:{"formal": ["Implement the region's three-year chapter development plan, created each June by the YPO and YPO Gold REXs and submitted by the Regional Chair [Gov Art. III.1.b.iv].", "Initiate new chapters with the Membership team to accommodate high demand or low conversion of prospects [Gov Art. III.1.b.v; III.1.a.i]."], "do": ["Work waiver reviews and qualifying-role questions properly and consistently; this is where peerdom is protected or eroded.", "Support Chapters in formation with the development of a CDP.", "Support smooth member transitions into YPO Gold."], "dont": ["Approve a new chapter: the CDP needs at least 60% of the entire REX (and both Regional Chairs in integrated regions), then the CRC, then Global Board approval [Ops Art. I.2.e].", "Make eligibility decisions that sit with the Peer Review Panel, the Membership Committee or the Global Board [Ops Art. I.3.a].", "Set or vary dues or fees [Ops Art. I.3.a]."], "stops": ["Where the RMEO begins: the RMO owns getting the right members in (pipeline, criteria, peerdom, new chapters); the RMEO owns keeping them engaged.", "At the chapter membership officer: chapters recruit; the RMO enables, aligns and protects standards.", "At the PRP and Membership Committee for individual eligibility and waivers beyond regional scope."]},
+  t:"Regional Membership Officer", mission:"Strengthen peerdom across the region by setting regional membership priorities, supporting chapter membership officers, advancing strategic recruitment and helping chapters build healthy, diverse and engaged membership communities.",
+  cols:[
+   {h:"Your leadership helps the region", l:["Establish clear regional membership goals and align chapter goals to them.","Support strategic recruitment of diverse new members.","Work with champions on new chapter development.","Strengthen chapter membership officer confidence and collaboration.","Improve new member retention, and support smooth transitions to YPO Gold.","Develop future regional and chapter leaders."]},
+   {h:"Support network", l:["Governance: Membership Committee; Peer Review Panel (PRP).","Chapter: chapter membership officers, chapter chairs, chapter managers.","Regional: Regional Chair, REX / regional board, regional management team, outgoing and incoming RMOs."]},
+   {h:"Your role in membership verification", l:["From 1 July 2026, applicants are verified by role in three steps: the chapter and management check each application first, you review the complex cases, and the PRP Chair confirms eligibility.","Complex cases that come to you include shared leadership roles, companies in transition, and divisions of large multinationals with matrix structures.","Title waivers no longer exist: eligibility is based on the role, not the job title."]}
+  ],
+  tl:[
+   {w:"April–June (pre-term)", b:"Build your regional membership strategy", p:"Understand the region's membership landscape; with the Regional Membership Recruitment team, set regional goals and, where applicable, a Strategic Membership Pathways plan."},
+   {w:"July–June", b:"Strengthen chapters and protect peerdom", p:"Partner with chapter membership officers on recruitment, membership criteria and waiver reviews, including qualifying roles and divisions."},
+   {w:"July–June", b:"Connect the region", p:"Connect chapters through quarterly calls."},
+   {w:"April–June", b:"Ensure long-term success", p:"Monitor trends, capture best practices and prepare the incoming RMO."}
+  ],
+  links:[["MENA Membership Guidelines",U.memguide],["Verification Framework",U.verify]]},
+ {id:"learning", mgr:["Maria Luz Domingo","Regional Forum and Learning Manager (RFLM)"], cl:[["FY26–27 Chapter Learning Officers & Assistant Learning Officers",U.clo]],
+  rex:{"do": ["Hold the E-CODE standard consistently across all 27 chapters; it is the main lever for quality."], "dont": ["Arbitrarily deny or limit a learning topic because you disagree with it; with 10 member pledges a champion may seek a GCC decision [Ops Art. II.12.c.ix].", "Allow topics that promote harm or violence, are a crime locally, or would harm YPO's reputation [Ops Art. II.12.c.x].", "Let a programme cross into solicitation or advocacy; no statement in YPO's name on legislation, policies or public officials [Ops Art. II.12.d.iii].", "Allow a sponsor to present or pitch members; a sponsor table is fine [Ops Art. II.2.g]."], "stops": ["At chapter programming: chapters own their learning schedule; the RLO guides, verifies alignment and enables [Ops Art. I.2.l].", "At forum: forum education and moderator development sit with the RFO.", "At global event approval: YPO Global status, global marketing or YPO resources go to the Events Committee."]},
+  t:"Regional Learning Officer", mission:"Support chapter learning officers to deliver healthy and vibrant learning programs.",
+  cols:[
+   {h:"Responsibilities", l:["Establish learning goals for the region.","Promote participation in certifications, trainings and virtual workshops.","Encourage peer-to-peer idea exchange and best-practice sharing.","Collaborate with management associates and champions to support regional event learning programs.","Nurture regional learning alliances and inter- and cross-chapter events.","Ensure chapter programs align with E-CODE and are posted on Cvent when appropriate.","Guide chapters to use network-developed content to avoid duplication.","Recognise day chairs and chapter learning officers."]},
+   {h:"Commitment", l:["Regional board meetings (typically twice a year, two days).","REX meetings (monthly or quarterly).","Annual strategic planning meeting if separate from REX.","Regional officer on-demand modules and virtual training.","At least two chapter officer calls annually.","Regular calls with the Regional Forum and Learning Manager (RFLM)."]},
+   {h:"Key goals", l:["Guide the design of vibrant, blended learning programs that bring value to members.","Ensure every learning officer creates and executes a program that supports chapter, regional and YPO objectives.","Verify that chapter programs align with YPO lifelong learning categories."]},
+   {h:"Criteria and gains", l:["Served as a chapter officer or champion of a relevant event; member in good standing of a primary chapter in the region.","Gain regional insight, peer leadership and mentoring skills, and a hand in long-term regional learning plans."]}
+  ],
+  links:[["Learning Hub",U.learnhub],["Day Chair Toolkit",U.daychair],["E-CODE",U.ecode]]},
+ {id:"forum", mgr:["Maria Luz Domingo","Regional Forum and Learning Manager (RFLM)"], cl:[["FY26–27 Chapter Forum Officers",U.cfo]],
+  rex:{"do": ["Protect forum confidentiality and protocol as a regional standard, not a chapter preference.", "Intervene early and quietly where a forum is struggling."], "dont": ["Manage or moderate individual forums.", "Override a chapter's placement decisions; strengthen the policy instead.", "Carry forum content out of forum. Nothing shared in forum belongs in a REX report."], "stops": ["At the individual forum (chapter forum officers and moderators).", "At spouse forums (RSPFO), with whom the RFO shares resources, training and often budget.", "At learning programming (RLO), though both are supported by the RFLM."]},
+  t:"Regional Forum Officer", mission:"Strengthen forum health, engagement and growth across the region. Your focus is not to manage individual forums, but to strengthen the regional forum ecosystem and create the conditions for trusted, high-value forum experiences.",
+  cols:[
+   {h:"Set direction", l:["Activate YPO Forum Committee priorities across chapters, allowing flexibility for local needs.","Maintain visibility across the regional forum landscape: health, placement and engagement.","Understand the regional forum budget and international funding, and help chapters use it for education workshops, moderator development, CFFs, retreats, renewal, new forum launches and health improvement.","Keep regional forums visible on Forum Hub.","Expand awareness of Forum Fundamentals, Forum Basics and moderator training.","Align closely with the Regional Chair, RFLM, Forum Committee leadership and chapter champions."]},
+   {h:"Best practices", l:["Stay connected to chapter forum officers.","Promote moderator education and development.","Encourage tools that strengthen confidentiality, commitment, protocol and peer connection.","Help ensure fair and timely access to forum, with clear placement policies.","Run regular forum officer calls."]}
+  ],
+  tl:[
+   {w:"July–September", b:"Launch and alignment", p:"Complete Regional Forum Officer Essentials, attend GLC and the Regional Officer Workshop, review forum participation and health, build early relationships."},
+   {w:"October–January", b:"Support and development", p:"Regular contact with chapter forum officers and moderators; officer calls; promote training, the Four Step Forum Exploration and CFF resources."},
+   {w:"February–April", b:"Monitor and strengthen", p:"Review forum health using survey data and feedback; intervene early; encourage Forum Health Surveys, Issues Clearing and Forum SuperCharge; review placement policies."},
+   {w:"May–June", b:"Transition and continuity", p:"Document insights and trends, onboard your successor, keep communication and education going."}
+  ],
+  links:[["Forum Hub",U.forumhub],["CFF Directory",U.cff]]},
+ {id:"engagement", mgr:["Tamara Crowhurst","Regional Manager"], cl:[["FY26–27 Chapter Member Engagement Officers",U.meo]],
+  rex:{"mandate": "Support chapter member engagement officers to connect members with the products, services and experiences that deepen their YPO journey, and keep members engaged, integrated and retained. The CRC has explicit oversight of the Chapter and Regional MEO roles [Ops Art. V.2.d.i.9].", "do": ["Treat the quarterly chapter-officer call as the engine of the role.", "Use engagement data to find where new-member integration is failing, not just the chapters that report well.", "Partner closely with the RMO (pipeline in) and the RLO (programming)."], "dont": ["Run chapter engagement plans yourself; build chapter MEO capability instead.", "Use engagement data beyond its purpose, or move it outside YPO systems.", "Let engagement slide into promoting a member's or sponsor's offering; that is solicitation [Ops Art. VIII.3.c]."], "stops": ["At recruitment (RMO).", "At forum placement, which sits with the RFO and chapter forum officers.", "At learning content (RLO).", "At the chapter's own engagement plan, which the chapter MEO owns."]},
+  t:"Regional Member Engagement", mission:"Help chapters keep members active, connected and getting value from YPO, from onboarding and Apeiron to re-engaging tenured members, across both YPO (Y) and YPO Gold.",
+  cols:[
+   {h:"Focus this year", l:["The Chapter Engagement Competition across all 27 chapters, with baseline and mid-point leaderboard reviews.","Two Reignite MENA sessions for existing members.","New Member Voucher use and Apeiron attendance (Y)."]},
+   {h:"Tools", l:["Chapter Member Engagement Officers list.","New Member Onboarding checklist in the United MENA Playbook."]}
+  ],
+  tl:[
+   {w:"January–June (pre-term)", b:"Prepare", p:"Complete the on-demand modules and the Regional Officer Workshop; align goals with the REX and Regional Chair; connect 1:1 with incoming chapter MEOs."},
+   {w:"July–September", b:"Onboard", p:"1:1 onboarding with each chapter MEO; set quarterly call dates; review regional engagement data."},
+   {w:"October–March", b:"Engage and share", p:"Host quarterly calls, share best practice, support graduating members and renewals, promote Officer Essentials and GLC."},
+   {w:"April–June", b:"Review and hand over", p:"Review performance, confirm your successor and hand over."}
+  ]},
+ {id:"partnerships", mgr:["Paige Morgan","Regional Director"], cl:[],
+  rex:{"mandate": "An optional elected officer: a voting REX member, but without dedicated management support [Gov Art. III.1.b.vi.4].", "do": ["Route regional sponsorships to the Regional Chair or a designated regional officer for review and approval, then forward to YPO for approval [Ops Art. II.2.e.ii].", "Check the sponsorship database, which any member can request [Ops Art. II.2.h]."], "dont": ["Constitute the region as a collection agency for any fund or cause [Ops Art. I.2.k, II.1.b.v].", "Provide paid consultancy to YPO while serving as a champion [Ops Art. III.15.d]."], "stops": ["At YPO approval of sponsorships, and MD/CFO signature of any contract."]},
+  t:"Regional Strategic Partnerships Officer", mission:"Secure long-term partners who add value to the region, through funding, benefits in kind, learning content, venues and experiences, while protecting members' trust.",
+  cols:[
+   {h:"Partnership best practices", l:["Think beyond cash: learning content, resources, venues and experiences.","Check in regularly with partners to confirm both sides' expectations are met.","Create meaningful opportunities to meet members, without guaranteeing customers.","Put a written agreement in place with legal counsel.","Never share member contact information with a partner.","Ensure partners follow YPO's Code of Conduct for non-solicitation and confidentiality."]},
+   {h:"Policy boundaries", l:["Sponsors are never given access to the membership database in any form.","A sponsor table with materials is allowed; presenting requires approval of the event champion and the Events Committee.","Only the MD and CFO sign contracts binding YPO."]}
+  ],
+  links:[["Sample Partnership Agreement",U.spagree],["Strategic Learning Partners",U.slp]]},
+ {id:"spouse", mgr:["Lauren Aird","Global Family Manager, EMEA"], cl:[["FY26–27 Chapter Spouse/Partner Officers",U.spo]],
+  rex:{"do": ["Use regional communications channels properly rather than direct outreach."], "dont": ["Assume voting rights: the region determines a spouse/partner officer's voting privileges [Gov Art. III.1.b.ii.2]. Confirm and record the region's position."], "stops": ["At family/children programming (RFamO).", "At spouse forum health (RSPFO).", "At member-facing engagement (RMEO)."]},
+  t:"Regional Spouse/Partner Officer", mission:"Support chapter spouse/partner officers in creating meaningful opportunities for connection, learning and engagement across the region, and help build a stronger, more connected and inclusive YPO community.",
+  cols:[
+   {h:"Best practices", l:["Assess and align: connect with chapter officers and attend regional strategy planning or Game Plan to align goals, budget and dates.","Share certifications, trainings, workshops and YPO global awards.","Collaborate with management on resources for regional family initiatives.","Nurture cross-chapter and chapter-open-to-region (COR) events.","Ensure programming aligns with E-CODE and includes all spouses/partners."]},
+   {h:"Support", l:["Global Family Manager, EMEA: Lauren Aird.","YPO Spouse/Partner Community (YSP) on YPO Connect.","The role may be filled only by a spouse/partner; the region determines voting privileges."]}
+  ],
+  tl:[
+   {w:"January–June", b:"Start strong", p:"Role review, on-demand modules, GLC and Regional Officer Workshop, join YSP, welcome chapter officers with the Global Family Manager, set goals and budget."},
+   {w:"July–September", b:"Design and build", p:"Align plans with the REX, set quarterly call dates, send welcome letters, attend REX and RBM. Goal: a REX-approved plan."},
+   {w:"July–March", b:"Transition and launch", p:"Share best practices, support regional events, oversee E-CODE and S.A.L.T.T. in chapter programming."},
+   {w:"April–June", b:"Evaluate and transition", p:"Review engagement data, confirm your successor, structured handoff, support chapter awards submissions."}
+  ],
+  links:[["S/P Integration Guide",U.spint],["YSP on Connect",U.ysp]]},
+ {id:"family", mgr:["Lauren Aird","Global Family Manager, EMEA"], cl:[["FY26–27 Chapter Family Officers",U.famlist]],
+  rex:{"dont": ["Design programming that assumes one family shape.", "Let family events drift outside E-CODE.", "Bypass the Global Family Manager on global family resources."], "stops": ["At spouse/partner-specific engagement (RSPO) and spouse forum (RSPFO); all three roles may be held by one person [Gov Art. IV.3.a.ii.1].", "At chapter programming delivery (chapter family officers).", "At member learning (RLO)."]},
+  t:"Regional Family Officer", mission:"Support chapter family officers in creating experiences that strengthen family engagement across the region, fostering connection, belonging and lifelong relationships for members, spouses/partners and children.",
+  cols:[
+   {h:"Best practices", l:["Assess and align with chapter officers through regional strategy planning or Game Plan.","Share certifications, trainings, workshops and global awards.","Collaborate with management to support regional family initiatives.","Nurture cross-chapter and COR events.","Ensure programming aligns with E-CODE and includes all family units."]},
+   {h:"Support", l:["Global Family Manager, EMEA: Lauren Aird.","Parenting Community, YNG group, Family Forum, WhatsApp peer network. YNG questions: yng@ypo.org.","Only the member decides whether their spouse/partner or children participate."]}
+  ],
+  tl:[
+   {w:"January–June", b:"Start strong", p:"Role review, modules, GLC and Regional Officer Workshop, join the Parenting Community and YNG group, welcome chapter family officers with the Global Family Manager."},
+   {w:"July–September", b:"Design and build", p:"Align with REX, set quarterly calls, send welcome letters, attend REX and RBM, regular contact with the Global Family Manager."},
+   {w:"July–March", b:"Transition and launch", p:"Share best practices, support regional events, oversee E-CODE and S.A.L.T.T., encourage Parenting and S/P Community participation."},
+   {w:"April–June", b:"Evaluate and transition", p:"Review engagement data, confirm successor, handoff, support chapter awards submissions."}
+  ],
+  links:[["Family Forum Guide",U.famforum],["Parenting Community on Connect",U.parenting],["Parenting Community 101",U.parenting101],["Family Officer Sub-Network",U.famsub],["Family Officer Essentials",U.famess],["YNG Group on Connect",U.yng]]},
+ {id:"spouseforum", mgr:["Maria Luz Domingo","Regional Forum and Learning Manager (RFLM)"], cl:[["FY26–27 Chapter Spouse Forum Officers",U.csfo]],
+  rex:{"do": ["Keep spouse forum visible in regional priorities and budget discussions."], "dont": ["Manage individual spouse forums.", "Duplicate the RFO's training pipeline instead of using it.", "Treat spouse forum as a subset of family programming."], "stops": ["At member forums (RFO).", "At spouse/partner engagement and events generally (RSPO).", "At individual forum management (chapter spouse forum officers and moderators)."]},
+  t:"Regional Spouse Forum Officer", mission:"Strengthen spouse forum health, engagement and connection across the region, in close partnership with the Regional Forum Officer. The focus is the regional spouse forum ecosystem, not managing individual spouse forums.",
+  cols:[
+   {h:"You help ensure that", l:["Chapter spouse forum officers feel supported and connected.","Spouse forum education remains visible and accessible.","Moderators receive development opportunities.","Spouse forum health issues are identified early.","Best practices are shared and forum protocols are reinforced.","Spouses/partners gain fair and timely access to forum."]},
+   {h:"Working with the RFO", l:["Many regions share forum resources, training and budgets across member and spouse forum, so close collaboration with the Regional Forum Officer is essential.","Align with the RFO, regional forum manager (RFLM) and regional leadership on priorities.","A member or a spouse may hold this role."]}
+  ],
+  tl:[
+   {w:"July–September", b:"Launch and alignment", p:"Complete Regional Spouse Forum Officer Essentials, attend GLC and the Regional Officer Workshop, review participation and health."},
+   {w:"October–January", b:"Support and development", p:"Officer calls, promote Forum Fundamentals, Forum Basics and moderator training with the RFO."},
+   {w:"February–April", b:"Monitor and strengthen", p:"Review health data, intervene early, promote Forum Health Surveys, Issues Clearing, SuperCharge and CFF support."},
+   {w:"May–June", b:"Transition and continuity", p:"Document trends and needs, onboard your successor."}
+  ],
+  links:[["Forum Hub",U.forumhub]]}
+];
+
+const MGMT = [
+ {n:"Paige Morgan", r:"YPO MENA Regional Director", role:"Regional Director",
+  ask:["Strategic planning (Game Plan).","Bylaws, policy & procedures, code of conduct.","Board leadership and succession planning.","Wider regional and international opportunities.","Chapter metrics (Chapter Commitments, Satisfaction Index).","General chapter board enquiries."],
+  sup:"Regional Chairs and Chapter Chairs.",
+  purpose:"Your primary YPO partner through the leadership year: strategic guidance, operational support and organisational insight. The Regional Chair oversees the region in partnership with the Regional Director.",
+  resp:["The governance calendar: RBM and REX dates, strategy session, chapter visits and election timeline.","Election administration on the full-board-vote route (email ballot, votes within seven days).","Regional budget tracking and reporting. From 1 July 2026 unspent regional funds transfer to general reserves.","Chapter health information and early warning.","The regional communications channel and links to the CRC, Councils and global initiatives.","Continuity across officer turnover."],
+  dos:["Treat the Chair partnership as the primary working relationship; start early with the Chair-Elect.","Raise governance questions before decisions are taken, especially 60% thresholds and 1 July / 1 November deadlines.","Keep a clean record of REX and Regional Board decisions and votes.","Escalate learning-boundary concerns immediately."],
+  donts:["Vote at the REX or Regional Board.","Sign anything binding YPO.","Approve member expenses outside budgets and policy.","Make governance decisions that belong to the REX, Regional Board, CRC or Global Board.","Allow the region to impose dues or fees on members or chapters."],
+  ends:"At the vote, at chapter autonomy, at the chapter manager, at the specialist functions (RFLM, MDM, GFM) and at the Managing Director."},
+ {n:"Tamara Crowhurst", r:"YPO MENA Regional Manager", role:"Regional Manager",
+  ask:["Chapter manager support.","Funding reimbursements.","Governance meeting logistics.","Chapter data and insights.","Regional communication channels.","Member engagement."],
+  sup:"Chapter Managers, Regional Member Engagement Officers and Chapter Member Engagement Officers.",
+  purpose:"Runs the operational side of the region (meetings, events, systems, records and compliance tracking) so officers can lead and the Regional Director can focus on strategy and governance.",
+  resp:["Supporting the region's Chapter Managers day to day.","Meeting delivery: RBMs (typically October/November and April/May), the annual in-person REX strategy meeting and mid-year reviews.","The RBM voting record: one representative per chapter, set by the chapter chair; chapters below minimum standards cannot vote.","Systems and data integrity across Salesforce, Cvent, the Chapter Manager Hub and Connect.","Regional communications, WhatsApp group administration, budget tracking.","Officer support: onboarding, training registration and quarterly call scheduling."],
+  dos:["Keep close control of the calendar.","Keep evidence in YPO systems, not personal drives.","Give officers clean, current data rather than raw exports.","Check WhatsApp group membership regularly."],
+  donts:["Move member data outside YPO systems without explicit member opt-in.","Send or allow member-to-member mass communications on the regional channel.","Record a chapter's vote from someone who doesn't hold it.","Let a regional event carry the 'A YPO Approved Event' designation."],
+  ends:"At the decision, at the chapter manager's desk, at the specialist pipelines (RFLM, MDM) and at the Regional Director for anything governance-related."},
+ {n:"Maria Luz Domingo", r:"YPO MENA Regional Forum and Learning Manager", role:"RFLM",
+  ask:["Forum health and trainings across MENA.","Regional and chapter forum officer support tools.","Forum education and development.","Forum best practices, help and resources.","Speaker resources.","Day chair workshops.","Learning and assistant learning officer collaboration tools."],
+  sup:"Regional Learning, Forum and Spouse Forum Officers; Chapter Learning, Forum and Spouse Forum Officers.",
+  purpose:"Carries the management side of forum health and learning quality (data, training pipeline, budget routes and systems) so the RFO, RLO and RSPFO can focus on relationships, standards and intervention.",
+  resp:["The forum training pipeline: new members trained within six months; all moderators trained; forum participation updated annually in the Chapter Hub.","Forum health tools: Forum Health Surveys, Issues Clearing, SuperCharge, CFF access.","The 1 October learning calendar obligation (Cvent or Chapter Hub).","Regional forum budget routes and international funding.","Routing network content and business network directors.","Officer education logistics and learning-boundary escalation."],
+  dos:["Make funding routes visible.","Track the six-month new-member forum training clock chapter by chapter.","Give the RFO and RSPFO early signals from health data.","Keep Cvent and Chapter Hub current (Chapter Excellence scoring from FY28–29)."],
+  donts:["Carry forum content anywhere.","Adjudicate a contested learning topic (escalate; champions may appeal to the GCC).","Arbitrarily deny or limit an idea exchange.","Allow a sponsor to present or pitch members without approval."],
+  ends:"At the individual forum, at the standard (set by the RFO, RLO, RSPFO), at global event approval and at chapter programming."},
+ {n:"Neeta Gandhi", r:"YPO MENA Regional Membership Development Manager", role:"MDM",
+  ask:["Best practices for membership development.","MENA's membership program.","Global membership development strategy.","Creating new chapters.","Chapter membership portals."],
+  sup:"Regional Membership Officers and Chapter Membership Officers.",
+  purpose:"Carries the management side of membership growth and quality (pipeline, prospects, waivers, new chapter support and data) with the RMO and the global Membership Department.",
+  resp:["Application validation against documentation and public sources.","The waiver process via waivers@ypo.org: follow-up after three business days, halt after seven; complete waivers go to the Regional Chair and RMO for comment before the PRP decides.","Prospect Portal: applications not updated within two weeks may be reassigned; monthly reporting to the CRC and Membership Committee.","New chapter support and the chapter creation season (June–February, then February–April).","The June three-year chapter development plan, which the RMO implements.","Roster integrity (1 October commitment)."],
+  dos:["Run waivers to the published timings.","Give the Regional Chair and RMO their comment window on every waiver.","Keep the Prospect Portal moving.","Work new chapter creation backwards from the target 1 July."],
+  donts:["Determine eligibility (the PRP decides).","Release member company recertification information without PRP-approved written request.","Approve a new chapter (REX 60% → CRC → Global Board).","Give sponsors any access to member data."],
+  ends:"At the PRP and Membership Committee, at the RMO's strategy, at the chapter membership officer and at the Global Board."},
+ {n:"Lauren Aird", r:"YPO Global Family Manager, EMEA", role:"GFM",
+  ask:["Family and spouse/partner requests and data.","YNG queries.","Parenting and YSP collaboration and connection."],
+  sup:"Regional Spouse/Partner Officers, Regional Family Officers, Chapter Spouse/Partner Officers and Chapter Family Officers.",
+  purpose:"Supports regional and chapter family and spouse/partner officers across the Super Region with guidance, resources, best practice and escalation, keeping programming consistent and inclusive.",
+  resp:["Officer onboarding and welcome communications with the RFamO and RSPO.","A standing relationship with each region's RFamO and RSPO.","Moving resources and best practice across regions.","Maintaining the E-CODE and S.A.L.T.T. frameworks and materials.","Community routes: Parenting Community, YNG, Family Forum, YSP.","Support when challenges arise."],
+  dos:["Move practice between regions deliberately.","Make sure spouse/partner officers get their officer education.","Keep programming inclusive of all family shapes.","Support awards submissions."],
+  donts:["Assume participation: the member decides who in their family engages.","Assume a spouse/partner officer votes: the region decides.","Contact families outside proper channels.","Run a region's programme."],
+  ends:"At the region's plan (RFamO and RSPO), at spouse forum health (RSPFO), at member engagement (RMEO) and at chapter delivery."}
+];
+
+const CAN = [["Attend all Regional Board and REX meetings","Required of the RD and RM [Ops Art. I.3.c.i]"],["Administer the regional officer election ballot","RD, full board vote route [Gov Art. IV.3.b.iii.1]"],["Distribute regional content to members","Regional management team [Ops Art. VIII.3.b.ii]"],["Hold and work member data inside YPO systems","[Ops App. 4]"],["Receive chapter rosters","Copies to the RD [Ops Art. I.2.i]"],["Validate applications and request documentation","Membership Department [Ops Art. III.8.ii.2]"],["Halt an incomplete waiver after seven business days","[Ops Art. III.1.h.iii.3]"],["Reassign a prospect after two weeks of chapter inaction","[Ops Art. III.1.g.iii.iv]"],["Report monthly on prospects to CRC and Membership Committee","[Ops Art. III.1.g.v]"],["Escalate a learning-boundary concern","Must elevate immediately [Ops Art. II.12.e.i]"],["Remove non-members from official WhatsApp groups","[Ops App. 6 §8]"],["Report a suspected violation confidentially","[Ops Art. II.13.c–d]"]];
+const CANT = [["Vote at the REX or Regional Board","Voting is by chapter and elected officers [Gov Art. III.1.a.iii, III.1.b.ii.2]"],["Sign contracts binding YPO","MD and CFO only [Ops Art. VII.3.b]"],["Approve member expenses outside budget and policy","[Ops Art. VII.5.a]"],["Approve a new chapter","REX and CRC recommend, Global Board approves [Ops Art. I.2.e]"],["Set or vary membership requirements","Global Board only [Ops Art. I.3.a]"],["Determine a membership waiver","The PRP decides [Ops Art. III.1.h.ii]"],["Release recertification information","Written request and PRP approval [Ops Art. III.2.b]"],["Give a sponsor any member data","Never, in any form [Ops Art. II.2.c]"],["Adjudicate a contested learning topic","Escalate; GCC appeal [Ops Art. II.12.e]"],["Withdraw YPO's support or brand permission","MD, President or GCC Chair [Ops Art. II.12.e.vi]"],["Alter the YPO brand mark","Global Brand approval [Ops Art. VIII.1.b]"],["Approve use of the YPO name","MD approval [Ops Art. VIII.1.c]"],["Act as a media spokesperson","Designated, trained spokespeople [Ops Art. VIII.2.b]"],["Conduct formal governance or voting over WhatsApp","[Ops App. 6 §6]"],["Share confidential information on WhatsApp","[Ops App. 6 §6]"]];
+
+const DOCS = [
+ {b:"YPO Policies & Procedures and governance documents",s:"The P&P Manual and Operations Manual, on YPO Connect.",u:U.pp,e:"Open folder"},
+ {b:"Sample chapter by-laws",s:"A template for chapter by-laws, to adapt to the country of incorporation.",u:U.bylaws,e:"Download PDF"},
+ {b:"E-CODE and learning boundaries",s:"The framework for Only-in-YPO learning experiences and the Safe Haven protocols.",u:U.ecode,e:"Download PDF"},
+ {b:"Conduct Committee Toolkit",s:"Guidance for chapter conduct committees and off-boarding.",u:U.conduct,e:"Download PDF"}
+];
+const RLINKS = [
+ {b:"United MENA Playbook",s:"The regional governance resource for every MENA chapter.",u:U.united,e:"Open playbook"},
+ {b:"Chapter Commitments dashboard",s:"Where each chapter stands against the 14 commitments.",u:U.commitments,e:"Open dashboard"},
+ {b:"Regional calendar",s:"Global, regional and GLC dates in one view.",u:U.calendar,e:"Open calendar"},
+ {b:"MENA Chapter Guides",s:"An overview of each YPO MENA chapter.",u:U.guides,e:"Open guide"},
+ {b:"Champion Catalog",s:"Every champion position across YPO, for succession planning.",u:U.catalog,e:"Download PDF"},
+ {b:"Request a Game Plan",s:"Book a certified Game Plan coach for a strategic planning session.",u:U.gameplan,e:"Open form"}
+];
+
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const initials = n => n.split(" ").filter(w=>/^[A-Z]/.test(w)).map(w=>w[0]).slice(0,2).join("");
+const ul = l => "<ul>"+l.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";
+const $ = id => document.getElementById(id);
+
+// Roster
+const personHTML = p => `<a class="person${p.lead?" lead":""}" href="#role-${p.role}" data-role="${p.role}"><span><b>${esc(p.n)}</b><span>${esc(p.r)}</span></span></a>`;
+$("rosterLead").innerHTML = REX.filter(p=>p.lead).map(personHTML).join("");
+$("roster").innerHTML = REX.filter(p=>!p.lead).map(personHTML).join("");
+
+// Goals
+$("goalList").innerHTML = GOALS.map(g=>`<article class="goal"><div class="goal-h"><h3>${esc(g.t)}</h3><span>${esc(who(g.role).join(", "))}</span></div>${ul(g.g)}</article>`).join("");
+
+// Shared + roles
+$("shared").innerHTML = SHARED.map(s=>`<div class="panel"><h3>${esc(s.h)}</h3>${ul(s.l)}</div>`).join("");
+$("roleList").innerHTML = ROLES.map(r=>`<details class="role" id="role-${r.id}"><summary><div><h3>${esc(r.t)}</h3><div class="who">${esc(who(r.id).join(" and "))}</div></div><span class="tog" aria-hidden="true">+</span></summary><div class="role-body"><p class="mission">${esc(r.mission)}</p><div class="rgrid">${r.cols.map(c=>`<div><h4>${esc(c.h)}</h4>${ul(c.l)}</div>`).join("")}</div>${r.tl?`<div class="tl"><h4>Key moments through the year</h4><ol>${r.tl.map(t=>`<li><em>${esc(t.w)}</em><b>${esc(t.b)}</b><p>${esc(t.p)}</p></li>`).join("")}</ol></div>`:""}${r.rex?`<div class="mb"><h4>REX role and boundaries</h4><p class="src">Source: The Regional Executive Committee (REX) Roles, Responsibilities and Boundaries, with the YPO P&amp;P references it cites. Management partner: <a class="inl" href="#management">${esc(r.mgr[0])}, ${esc(r.mgr[1])}</a>.</p>${r.rex.mandate?`<p class="mand">${esc(r.rex.mandate)}</p>`:""}${r.rex.formal?`<h5>Formal responsibilities</h5>${ul(r.rex.formal)}`:""}<div class="dd2">${r.rex.do?`<div><h5>Do</h5>${ul(r.rex.do)}</div>`:""}<div><h5>Don't</h5>${ul(r.rex.dont)}</div></div><h5>Where the role stops</h5>${ul(r.rex.stops)}</div>`:""}${r.cl&&r.cl.length?`<div class="cl"><h4>Chapter officer contact list</h4><div class="links" style="margin-top:0">${r.cl.map(([t,u])=>`<a class="lnk" href="${u}" target="_blank" rel="noopener">${esc(t)} ${EXT}</a>`).join("")}</div></div>`:""}${r.note?`<p class="note">${esc(r.note)}</p>`:""}${r.links?`<div class="links">${r.links.map(([t,u])=>`<a class="lnk" href="${u}" target="_blank" rel="noopener">${esc(t)} ${EXT}</a>`).join("")}</div>`:""}</div></details>`).join("");
+document.querySelectorAll('a[href^="#role-"]').forEach(a=>a.addEventListener("click",()=>{const d=document.querySelector(a.getAttribute("href"));if(d)d.open=true;}));
+
+// Management
+$("mgmt").innerHTML = MGMT.map(m=>`<article class="mcard"><div class="mtop"><div><b>${esc(m.n)}</b><span>${esc(m.r)}</span></div></div><h4>Ask ${esc(m.n.split(" ")[0])} about</h4>${ul(m.ask)}<h4>Supports</h4><p class="sup">${esc(m.sup)}</p><details><summary>Role, responsibilities and boundaries</summary><p style="margin:0 0 8px;font-size:15px">${esc(m.purpose)}</p><h4>Responsibilities</h4>${ul(m.resp)}<div class="dd"><div><h4>Do</h4>${ul(m.dos)}</div><div><h4>Don't</h4>${ul(m.donts)}</div></div><h4>Where the role ends</h4><p class="sup">${esc(m.ends)}</p></details></article>`).join("");
+const rows = (t,d,cls) => $(t).querySelector("tbody").innerHTML = d.map(([a,b])=>`<tr><td>${esc(a)}</td><td${cls?' class="basis"':""}>${esc(b)}</td></tr>`).join("");
+rows("canT",CAN,1); rows("cantT",CANT,1);
+
+const docCard = d => `<a class="doc" href="${d.u}" target="_blank" rel="noopener"><b>${esc(d.b)}</b><span>${esc(d.s)}</span><em>${esc(d.e)}</em></a>`;
+$("docs").innerHTML = DOCS.map(docCard).join("");
+$("rlinks").innerHTML = RLINKS.map(docCard).join("");
+
+// FY timeline
+(function(){
+  const start = new Date(2026,6,1), end = new Date(2027,5,30,23,59), now = new Date();
+  const span = end - start, pos = d => Math.min(100,Math.max(0,(d-start)/span*100));
+  const track = $("fyTrack");
+  const qs = [["Q1",new Date(2026,7,15)],["Q2",new Date(2026,10,15)],["Q3",new Date(2027,1,14)],["Q4",new Date(2027,4,16)]];
+  [new Date(2026,9,1),new Date(2027,0,1),new Date(2027,3,1)].forEach(d=>{const t=document.createElement("div");t.className="fy-tick";t.style.left=pos(d)+"%";track.appendChild(t);});
+  qs.forEach(([l,d])=>{const q=document.createElement("div");q.className="fy-q";q.style.left=pos(d)+"%";q.textContent=l;track.appendChild(q);});
+  const ms = [["30 Sep · United MENA Playbook distributed",new Date(2026,8,30)],["29 Oct · REX on Tour – Qatar",new Date(2026,9,29)],["1 Nov · Succession plans",new Date(2026,10,1)],["21 Nov · MENA Mastery",new Date(2026,10,21)],["22 Nov · Q2 REX",new Date(2026,10,22)],["15–16 Mar · GLC Bangkok",new Date(2027,2,15)],["3–4 May · GLC San Diego",new Date(2027,4,3)],["30 Jun · Goals due",end,true]];
+  const leg=$("fyLegend");
+  let lastP=-99,lastT=5;
+  ms.forEach(([l,d,isEnd],i)=>{const m=document.createElement("div");m.className="fy-dot"+(isEnd?" end":"");const p=Math.min(pos(d),98.5);const t=(p-lastP<5&&lastT===5)?-14:5;m.style.top=t+"px";lastP=p;lastT=t;m.style.left=p+"%";m.textContent=i+1;m.title=l;track.appendChild(m);
+    const li=document.createElement("li");if(isEnd)li.className="end";li.innerHTML="<b>"+(i+1)+"</b><span>"+esc(l.replace(" · "," — "))+"</span>";leg.appendChild(li);});
+  const pct = pos(now);
+  const today = document.createElement("div");today.className="fy-today";today.style.left=Math.min(94,Math.max(6,pct))+"%";today.textContent="Today";track.appendChild(today);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{$("fyFill").style.width=pct+"%";}));
+  const days = Math.ceil((end-now)/86400000);
+  $("fyPct").textContent = now<start?"Starts 1 July 2026":now>end?"Year complete":Math.round(pct)+"% through the year";
+  $("fyNote").textContent = days>0?days+" days until the SMART goals are due.":"The FY26–27 goal deadline has passed.";
+  $("dueLeft").textContent = days>0?days+" days to go":"Deadline reached";
+})();
+
+// Active nav
+const navLinks=[...document.querySelectorAll(".topnav a")];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));}});},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("section.block").forEach(s=>io.observe(s));
+
+// ---------- Knowledge base for the chatbot ----------
+function buildKB(){
+  const L=[];
+  L.push("# YPO MENA REX Playbook (FY26-27)");
+  L.push("Links: United MENA Playbook "+U.united+" ; Q1 REX call presentation "+U.q1+" ; YPO Policies & Procedures and governance documents "+U.pp+" ; Sample chapter by-laws "+U.bylaws+" ; E-CODE "+U.ecode+" ; Conduct Committee Toolkit "+U.conduct+" ; Chapter Commitments dashboard "+U.commitments+" ; Regional calendar "+U.calendar+" ; Chapter Guides "+U.guides+" ; Champion Catalog "+U.catalog+" ; Game Plan request "+U.gameplan+".");
+  L.push("\n## FY26-27 REX officers");
+  REX.forEach(p=>L.push("- "+p.n+": "+p.r));
+  L.push("\n## FY26-27 SMART goals (all to be completed by 30 June 2027)");
+  GOALS.forEach(g=>{L.push("### "+g.t+" (owner: "+who(g.role).join(", ")+")");g.g.forEach(x=>L.push("- "+x));});
+  L.push("\n## All regional officers");
+  SHARED.forEach(s=>{L.push("### "+s.h);s.l.forEach(x=>L.push("- "+x));});
+  L.push("\n## Officer roles");
+  ROLES.forEach(r=>{L.push("### "+r.t+" (held by "+who(r.id).join(" and ")+")");L.push("Mission: "+r.mission);r.cols.forEach(c=>{L.push(c.h+":");c.l.forEach(x=>L.push("- "+x));});if(r.tl){L.push("Key moments:");r.tl.forEach(t=>L.push("- "+t.w+" — "+t.b+": "+t.p));}if(r.rex){L.push("Management partner: "+r.mgr.join(", ")+". REX role and boundaries (from The REX Roles, Responsibilities and Boundaries document): "+(r.rex.mandate||""));if(r.rex.formal)L.push("Formal: "+r.rex.formal.join(" "));if(r.rex.do)L.push("Do: "+r.rex.do.join(" "));L.push("Don't: "+r.rex.dont.join(" "));L.push("Where the role stops: "+r.rex.stops.join(" "));}L.push("Chapter officer contact list: "+(r.cl&&r.cl.length?r.cl.map(([t,u])=>t+" "+u).join(" ; "):"none listed"));if(r.note)L.push("Note: "+r.note);if(r.links)L.push("Links: "+r.links.map(([t,u])=>t+" "+u).join(" ; "));});
+  L.push("\n## Working with management");
+  MGMT.forEach(m=>{L.push("### "+m.n+" — "+m.r+" ("+m.role+")");L.push("Ask about: "+m.ask.join(" "));L.push("Supports: "+m.sup);L.push("Purpose: "+m.purpose);L.push("Responsibilities: "+m.resp.join(" "));L.push("Do: "+m.dos.join(" "));L.push("Don't: "+m.donts.join(" "));L.push("Where the role ends: "+m.ends);});
+  L.push("Other Global Family Managers: APAC Sandy Solis Manalang; Americas Nicole Wolf.");
+  L.push("\n### Management can"); CAN.forEach(([a,b])=>L.push("- "+a+" ("+b+")"));
+  L.push("### Management can't"); CANT.forEach(([a,b])=>L.push("- "+a+" ("+b+")"));
+  L.push("\n## Other key dates: GLC Bangkok 15-16 March 2027; GLC San Diego 3-4 May 2027; REX on Tour - Qatar 29 October 2026; MENA Mastery 21 November 2026; Q2 REX meeting 22 November 2026. Chapters must have succession plans by 1 November. Regional Board Meetings are typically October/November and April/May.");
+  return L.join("\n");
+}
+const KB = buildKB();
+const RULES = `You are the assistant for the YPO MENA REX Playbook, used by the FY26-27 Regional Executive Committee of YPO Middle East / North Africa.
+
+Rules:
+- Answer ONLY using the playbook content below. Do not use outside knowledge, and do not invent names, numbers, dates or links.
+- If a question is not covered by the playbook, or is unrelated to it, say briefly that it isn't covered in the REX Playbook, and where relevant suggest the United MENA Playbook (${U.united}) or the right management contact from the playbook. Do not answer off-topic questions (general knowledge, coding, news, etc.).
+- Be concise and practical: a short paragraph or a few bullet points using "- ". Use **bold** sparingly. Include a relevant link from the playbook when it helps.
+- Refer to people by name and role.
+
+PLAYBOOK CONTENT:
+${KB}`;
+
+// ---------- Chat ----------
+let sample=null, turns=[], ctl=null, busy=false;
+const msgs=$("msgs"), form=$("chatForm"), q=$("q"), send=$("send"), chat=$("chat"), fab=$("fab");
+const SUGS=["Who owns the Forum SMART goals?","What should I ask Tamara about?","Can management vote at the REX?","What is due by 1 November?"];
+$("sugs").innerHTML=SUGS.map(s=>`<button type="button">${esc(s)}</button>`).join("");
+$("sugs").addEventListener("click",e=>{if(e.target.tagName==="BUTTON"&&!busy){q.value=e.target.textContent;form.requestSubmit();}});
+fab.onclick=()=>{chat.classList.add("open");fab.classList.remove("show");q.focus();};
+$("closeChat").onclick=()=>{chat.classList.remove("open");fab.classList.add("show");fab.focus();};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&chat.classList.contains("open"))$("closeChat").click();});
+q.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+
+function md(t){
+  const lines=esc(t).split(/\n/);let out="",inList=false;
+  const inline=s=>s.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/(https?:\/\/[^\s<)]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  lines.forEach(l=>{const m=l.match(/^\s*[-*•]\s+(.*)/);if(m){if(!inList){out+="<ul>";inList=true;}out+="<li>"+inline(m[1])+"</li>";}else{if(inList){out+="</ul>";inList=false;}if(l.trim())out+="<p>"+inline(l)+"</p>";}});
+  if(inList)out+="</ul>";return out;
+}
+function bubble(cls,html){const d=document.createElement("div");d.className="m "+cls;d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
+const COPY={not_granted:"The assistant needs your permission to answer. Reload the page to be asked again.",rate_limited:"Too many questions at once. Wait a moment, then ask again.",prompt_too_large:"That question is too long. Try a shorter one.",sampling_disabled:"The assistant is turned off for this account.",capability_disabled:"The assistant is turned off for this account.",refused:"The assistant couldn't answer that. Try rephrasing your question about the playbook.",empty_completion:"No answer came back. Try asking again."};
+function setBusy(b){busy=b;send.textContent=b?"Stop":"Send";send.classList.toggle("stop",b);send.type=b?"button":"submit";}
+send.addEventListener("click",e=>{if(busy){e.preventDefault();ctl?.abort();}});
+
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(busy||!sample)return;
+  const text=q.value.trim(); if(!text)return;
+  q.value=""; bubble("u","<p>"+esc(text)+"</p>");
+  turns.push({role:"user",content:text});
+  let recent=turns.slice(-6); if(recent[0].role!=="user")recent.shift();
+  const size=arr=>new Blob([RULES,...arr.map(t=>t.content)]).size;
+  while(recent.length>1&&size(recent)>60000){recent=recent.slice(2);}
+  const input=[{role:"user",content:RULES},{role:"assistant",content:"Understood. I'll answer only from the REX Playbook."},...recent];
+  const b=bubble("a","<p>Thinking…</p>");
+  ctl=new AbortController(); setBusy(true);
+  try{
+    const {text:ans}=await sample(input,{cache:false,signal:ctl.signal,onText:({text})=>{b.innerHTML=md(text);msgs.scrollTop=msgs.scrollHeight;}});
+    b.innerHTML=md(ans); turns.push({role:"assistant",content:ans});
+  }catch(err){
+    turns.pop();
+    if(err&&err.text){b.innerHTML=md(err.text);}else{b.remove();}
+    if(err&&err.code!=="cancelled")bubble("err","<p>"+esc(COPY[err.code]||"The assistant couldn't answer just now. Try again in a moment.")+"</p>");
+    if(err&&(err.code==="not_granted"||err.code==="sampling_disabled"||err.code==="capability_disabled")){send.disabled=true;q.disabled=true;}
+  }finally{setBusy(false);}
+});
+
+(async()=>{
+  try{ if(window.claude&&claude.use){ sample=await claude.use("sample"); } }catch(e){ sample=null; }
+  if(sample){ fab.classList.add("show"); }
+})();
+</script>
+</body>
+</html>
